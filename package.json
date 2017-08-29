@@ -11,6 +11,7 @@
     "ftp",
     "raspberry"
   ],
+  "repository": "https://github.com/nkprince007/PiZilla.git",
   "author": "Naveen Kumar Sangi <nkprince007@gmail.com>",
   "license": "MIT",
   "dependencies": {

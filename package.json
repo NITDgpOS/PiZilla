@@ -4,7 +4,7 @@
   "description": "A file sharing web application for raspberry-pi-3",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ."
   },
   "keywords": [
     "file",
@@ -14,6 +14,8 @@
   "author": "Naveen Kumar Sangi <nkprince007@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "nodemon": "^1.11.0",
+    "underscore": "^1.8.3"
   }
 }

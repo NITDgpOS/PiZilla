@@ -10,6 +10,16 @@ const port = 8000
 app.use(express.static(path.join(__dirname, 'assets')))
 app.use(express.static(__dirname))
 
+app.engine('mustache', mustacheExpress())
+app.set('view engine', 'mustache')
+app.set('views', './views')
+
+app.get('/', (req, res) => {
+    res.render('index', {
+        'title': 'PiZilla'
+    })
+})
+
 app.get('/files', (req, res) => {
     var curDir = process.cwd()
     var query = req.query.path || ''

@@ -2,7 +2,7 @@
   "name": "pizilla",
   "version": "0.0.1",
   "description": "A file sharing web application for raspberry-pi-3",
-  "main": "server.js",
+  "main": "init.js",
   "scripts": {
     "clean": "rm -fr public",
     "build:react": "NODE_ENV=prod webpack --config webpack.config.js",
@@ -23,6 +23,7 @@
     "express": "^4.15.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-dropzone-component": "^2.0.0",
     "react-router": "^4.2.0",
     "superagent": "^3.6.0",
     "underscore": "^1.8.3"

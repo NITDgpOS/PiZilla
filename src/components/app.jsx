@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import DropZone from './dropzone';
+import FilesComponent from './files';
 
 class App extends Component {
     render() {
         return (
-            <div>App Component</div>
+            <div>
+                <DropZone />
+                <FilesComponent path={this.props.uploads} />
+            </div>
         );
     }
 }

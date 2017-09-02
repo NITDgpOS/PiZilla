@@ -11,7 +11,7 @@ const isProduction = process.env.NODE_ENV == 'prod';
 const outputFile = config.output.filename;
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.set('views', path.resolve(__dirname, 'public', 'views'));
+app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -19,6 +19,11 @@ app.get('/', (req, res) => {
         title: 'PiZilla',
         bundle: (isProduction ? '/' : 'http://localhost:8080/') + outputFile
     });
+});
+
+app.post('/upload', (req, res) => {
+    console.log(req);
+    res.end();
 });
 
 app.get('/files', (req, res) => {
@@ -52,5 +57,5 @@ app.get('/files', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Server started at http://localhost:${port}/`)
+    console.log(`Express backend started at http://localhost:${port}/`)
 })

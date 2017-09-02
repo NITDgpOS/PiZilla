@@ -4,10 +4,11 @@
   "description": "A file sharing web application for raspberry-pi-3",
   "main": "server.js",
   "scripts": {
-    "build": "NODE_ENV=prod webpack",
-    "webpack": "NODE_ENV=dev webpack-dev-server --config webpack.config.js",
-    "server": "node .",
-    "start": "concurrently \"npm run webpack\" \"npm run server\""
+    "clean": "rm -fr public",
+    "build:react": "NODE_ENV=prod webpack --config webpack.config.js",
+    "webpack:react": "NODE_ENV=dev webpack-dev-server --config webpack.config.js",
+    "server": "nodemon .",
+    "start": "npm run clean && concurrently \"npm run webpack:react\" \"npm run server\""
   },
   "keywords": [
     "file",
@@ -23,6 +24,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^4.2.0",
+    "superagent": "^3.6.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
@@ -35,6 +37,10 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "concurrently": "^3.5.0",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "nodemon": "^1.11.0",
+    "style-loader": "^0.18.2",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
   }

@@ -21,6 +21,7 @@
   "dependencies": {
     "ejs": "^2.5.7",
     "express": "^4.15.4",
+    "materialize-css": "^0.100.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-dropzone-component": "^2.0.0",
@@ -40,8 +41,10 @@
     "concurrently": "^3.5.0",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
     "nodemon": "^1.11.0",
     "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
   }

@@ -5,10 +5,10 @@ import FilesComponent from './files';
 class App extends Component {
     render() {
         return (
-            <div>
-                <DropZone />
+            <main>
                 <FilesComponent path={this.props.uploads} />
-            </div>
+                <DropZone />
+            </main>
         );
     }
 }

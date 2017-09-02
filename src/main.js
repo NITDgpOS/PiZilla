@@ -1,5 +1,6 @@
 // load main styles
-import '../assets/main.css';
+import '../assets/css/main.css';
+import '../assets/js/index';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

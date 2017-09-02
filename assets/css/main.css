@@ -1,0 +1,89 @@
+@import '../../node_modules/react-dropzone-component/styles/filepicker.css';
+@import '../../node_modules/dropzone/dist/min/dropzone.min.css';
+@import '../../node_modules/materialize-css/dist/css/materialize.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+#root {
+    height: 100%;
+}
+
+main {
+    height: 100%;
+    padding-left: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width : 992px) {
+    main {
+        padding-left: 0;
+    }
+}
+
+.fa {
+    background: transparent !important;
+    margin: 0px !important;
+}
+
+/* DropZone */
+
+.filepicker {
+    margin: 20px;
+    height: calc(100% - 40px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.filepicker .dz-message {
+    flex: 1 0 auto;
+    font-size: 3vw;
+    color: #37474f;
+}
+
+/* SideNav */
+
+#slide-out a.title {
+    font-weight: lighter;
+    font-size: 40px;
+    text-align: center;
+}
+
+#slide-out :nth-child(1) a:hover {
+    background-color: white !important;
+}
+
+.divider {
+    margin: 0 !important;
+}
+
+a.button-collapse {
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    margin: 5px;
+    display: none;
+    color: teal;
+}
+
+@media only screen and (max-width : 992px) {
+    a.button-collapse {
+        display: block !important;
+    }
+}
+
+a.button-collapse i {
+    margin-left: 18px;
+    margin-top: 19px;
+}

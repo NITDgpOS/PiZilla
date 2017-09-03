@@ -2,12 +2,15 @@
 import '../assets/css/main.css';
 import '../assets/js/index';
 
+import App from './components/App';
+import { Provider } from 'react-redux';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app';
-import serverConfig from '../config';
+
+import store from './misc/store';
 
 ReactDOM.render(
-    <App uploads={serverConfig.uploads} />,
+    <Provider store={ store }><App /></Provider>,
     document.getElementById('root')
 );

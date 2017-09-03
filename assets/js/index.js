@@ -1,9 +1,9 @@
 import '../../node_modules/materialize-css/dist/js/materialize';
 
 $(document).ready(() => {
-    $(".button-collapse").sideNav({
-        menuWidth: 300,
+    $('.button-collapse').sideNav({
+        draggable: true,
         edge: 'left',
-        draggable: true
+        menuWidth: 300
     });
 });

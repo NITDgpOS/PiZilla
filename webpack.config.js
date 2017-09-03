@@ -1,26 +1,19 @@
-var path = require('path');
-var Webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const Webpack = require('webpack');
 
-var config = {
-    entry: path.resolve(__dirname, 'src', 'main.js'),
-    output: {
-        path: path.resolve(__dirname, 'public'),
-        filename: 'bundle.js'
+const config = {
+    devServer: {
+        hot: true,
+        inline: true
     },
+    devtool: 'cheap-module-eval-source-map',
+    entry: path.resolve(__dirname, 'src', 'main.js'),
     module: {
         rules: [
             {
-                test: /\.js(x)?$/,
                 exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['es2015', 'react']
-                        }
-                    }
-                ]
+                test: /\.js(x)?$/,
+                use: 'babel-loader'
             },
             {
                 test: /\.css$/,
@@ -41,7 +34,7 @@ var config = {
                         loader: 'url-loader',
                         options: {
                             limit: 80000,
-                            mimetype: "application/font-woff"
+                            mimetype: 'application/font-woff'
                         }
                     }
                 ]
@@ -50,22 +43,22 @@ var config = {
                 test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 use: [
                     {
-                        loader: "file-loader"
+                        loader: 'file-loader'
                     }
                 ]
             }
         ]
     },
-    resolve: {
-        'extensions': ['.js', '.jsx', '.css']
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'public')
     },
     plugins: [
+        new Webpack.optimize.OccurrenceOrderPlugin(),
         new Webpack.HotModuleReplacementPlugin()
     ],
-    devtool: 'eval',
-    devServer: {
-        hot: true,
-        inline: true
+    resolve: {
+        'extensions': ['.js', '.jsx', '.css']
     }
 };
 

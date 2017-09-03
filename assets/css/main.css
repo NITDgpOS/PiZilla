@@ -35,16 +35,21 @@ main {
 .filepicker {
     margin: 20px;
     height: calc(100% - 40px);
-    width: 100%;
+    width: calc(100% - 40px);
+}
+
+.filepicker .dz-message {
+    font-size: 3vw;
+    color: #37474f;
+    margin: auto;
+    height: 100%;
     display: flex;
     align-items: center;
     flex-direction: row;
 }
 
-.filepicker .dz-message {
-    flex: 1 0 auto;
-    font-size: 3vw;
-    color: #37474f;
+.filepicker .dz-message span {
+    width: 100%;
 }
 
 /* SideNav */
@@ -53,6 +58,13 @@ main {
     font-weight: lighter;
     font-size: 40px;
     text-align: center;
+}
+
+#slide-out a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 #slide-out :nth-child(1) a:hover {
@@ -83,7 +95,7 @@ a.button-collapse {
     }
 }
 
-a.button-collapse i {
+a.button-collapse i.fa::before {
     margin-left: 18px;
-    margin-top: 19px;
+    position: fixed;
 }

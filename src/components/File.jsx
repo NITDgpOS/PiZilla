@@ -22,6 +22,10 @@ class File extends Component {
         FilesActions.changeDirectory(event.target.dataset.path);
     }
 
+    getViewLink(path) {
+        return `/view/${encodeURIComponent(path)}`;
+    }
+
     getDownloadLink(path) {
         return `/download?path=${encodeURIComponent(path)}`;
     }
@@ -30,14 +34,15 @@ class File extends Component {
         const path = this.props.path;
         const name = this.props.name;
         const isDirectory = this.props.isDirectory;
-        const downloadLink = this.getDownloadLink(path);
         const icon = (typeof this.props.icon !== 'undefined' ?
             `fa fa-${this.props.icon}` : 'fa fa-folder');
         let link = (
             <a className="tooltipped" data-position="right" data-delay="40"
                 data-tooltip="Download" data-path={ path }
-                href={ downloadLink }
-            ><i className="fa fa-file" />{name}
+                href={ this.getViewLink(name) }
+            >
+                <i className="fa fa-file" />
+                {name}
             </a>
         );
         if (isDirectory) {

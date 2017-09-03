@@ -8,7 +8,7 @@ import serverConfig from './config';
 
 const app = express();
 const port = serverConfig.port;
-const isProduction = process.env.NODE_ENV === 'prod';
+const isProduction = process.env.NODE_ENV === 'production';
 const outputFile = config.output.filename;
 const storage = multer.diskStorage({
     destination: (request, file, callback) => {
@@ -22,6 +22,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+app.use(express.static(path.resolve(__dirname, 'public')));
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -49,7 +50,12 @@ app.get('/files', (req, res) => {
     let curDir = __dirname;
     const query = req.query.path || '';
     if (query) curDir = path.resolve(query);
-    getFileList(curDir).then((data) => res.json(data));
+    getFileList(curDir).then((data) => {
+        if (data === null)
+            res.json({ 'error': `Access denied: '${curDir}'` }).end(403);
+        else
+            res.json(data);
+    });
 });
 
 app.listen(port, () => {

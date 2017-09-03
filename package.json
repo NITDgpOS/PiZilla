@@ -6,10 +6,11 @@
   "scripts": {
     "clean": "rm -fr public",
     "lint": "eslint .",
-    "build:react": "NODE_ENV=prod webpack --config webpack.config.js",
+    "build:react": "npm run clean && NODE_ENV=prod webpack --config webpack.config.prod.js",
     "webpack:react": "NODE_ENV=dev webpack-dev-server --config webpack.config.js",
     "server": "BABEL_CACHE_PATH=.cache.json nodemon .",
-    "start": "npm run clean && concurrently \"npm run webpack:react\" \"npm run server\""
+    "dev": "npm run clean && concurrently \"npm run webpack:react\" \"npm run server\"",
+    "start": "NODE_ENV=production BABEL_CACHE_PATH=.cache.json node ."
   },
   "keywords": [
     "file",

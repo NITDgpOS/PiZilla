@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 class File extends Component {
     static propTypes = {
         extension: PropTypes.string,
+        icon: PropTypes.string,
         isDirectory: PropTypes.bool,
         name: PropTypes.string,
         path: PropTypes.string
@@ -30,6 +31,8 @@ class File extends Component {
         const name = this.props.name;
         const isDirectory = this.props.isDirectory;
         const downloadLink = this.getDownloadLink(path);
+        const icon = (typeof this.props.icon !== 'undefined' ?
+            `fa fa-${this.props.icon}` : 'fa fa-folder');
         let link = (
             <a className="tooltipped" data-position="right" data-delay="40"
                 data-tooltip="Download" data-path={ path }
@@ -42,7 +45,7 @@ class File extends Component {
                 <a className="tooltipped" data-position="right"
                     data-delay="40" data-tooltip="Browse"
                     data-path={ path } onClick={ this.changeDirectory }
-                ><i className="fa fa-folder" />{name}
+                ><i className={ icon } />{name}
                 </a>);
         }
         return <li>{link}</li>;

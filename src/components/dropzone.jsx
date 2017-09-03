@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import DropzoneComponent from 'react-dropzone-component';
+import FilesActions from './../actions/FilesActions';
+import PropTypes from 'prop-types';
 
 class DropZone extends Component {
+    static propTypes = {
+        path: PropTypes.string
+    }
+
     constructor(props) {
         super(props);
 
@@ -17,20 +23,20 @@ class DropZone extends Component {
         };
 
         this.dropzone = null;
-        this.sending.bind(this);
     }
 
-    sending(file, xhr, formData) {
-        console.info(file, xhr, formData);
+    success(file, path) {
+        FilesActions.updateFileList(path);
     }
 
     render() {
         const config = this.componentConfig;
         const djsConfig = this.djsConfig;
+        const path = this.props.path;
 
         const eventHandlers = {
             init: (dz) => this.dropzone = dz,
-            sending: this.sending
+            success: (file) => this.success(file, path)
         };
 
         return (

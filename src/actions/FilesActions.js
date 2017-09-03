@@ -3,6 +3,7 @@ import keys from './../misc/keys';
 import store from './../misc/store';
 
 const changeDirectory = async (path) => {
+    if (typeof path === 'undefined') return;
     store.dispatch({ path, type: keys.CHANGE_FOLDER });
     await (updateFileList(path));
 };

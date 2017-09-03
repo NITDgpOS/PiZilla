@@ -3,6 +3,7 @@ import File from './File';
 import FilesActions from '../actions/FilesActions';
 import PropTypes from 'prop-types';
 import path from 'path';
+import serverConfig from './../../config';
 
 class SideBar extends Component {
     static propTypes = {
@@ -15,8 +16,18 @@ class SideBar extends Component {
     }
 
     render() {
+        const dirpath = this.props.path;
+        const parentDir = {
+            extension: null,
+            icon: 'level-up',
+            isDirectory: true,
+            name: '..',
+            path: path.dirname(dirpath)
+        };
         const files = this.props.files;
-        const list = files.map((file, i) => <File key={ i } { ...file } />);
+        if (path.resolve(dirpath) !== path.resolve(serverConfig.uploads))
+            files.unshift(parentDir);
+        const list = files.map((file) => <File key={ file.path } { ...file } />);
         list.unshift(<li key="title"><a className="title">PiZilla</a></li>);
 
         return (

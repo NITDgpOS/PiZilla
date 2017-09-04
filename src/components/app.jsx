@@ -13,7 +13,7 @@ class App extends Component {
         const store = this.props.store;
         return (
             <main>
-                <SideBar path={ store.path } files={ store.files } />
+                <SideBar { ...store } />
                 <DropZone path={ store.path } />
             </main>
         );

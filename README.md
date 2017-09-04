@@ -1,5 +1,6 @@
 PiZilla
 =======
+[![Build Status](https://travis-ci.org/nkprince007/PiZilla.svg?branch=master)](https://travis-ci.org/nkprince007/PiZilla)
 
 Setting up for production:
 --------------------------

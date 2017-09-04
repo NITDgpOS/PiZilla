@@ -1,5 +1,4 @@
 node_modules
-public/**/*.js
-public/**/*.json
+public
 uploads
 .cache.json

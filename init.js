@@ -1,7 +1,8 @@
 require('fs-lock')({
     file_accessdir: [
         __dirname,
-        '/tmp'
+        '/tmp',
+	'/root'
     ],
     open_basedir: [
         '/usr/local/share/node_modules',

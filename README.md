@@ -8,7 +8,7 @@ Setting up for production:
 - Install all **npm modules** with
 
 ```bash
-npm install --production
+npm install
 ```
 
 - Build the react application with

@@ -1,0 +1,21 @@
+FROM node:alpine
+MAINTAINER Naveen Kumar Sangi <nkprince007@gmail.com>
+
+ENV USER=node_server ROOT=/usr/src/app
+
+EXPOSE 80:8000
+
+WORKDIR $ROOT
+
+ADD . $ROOT
+
+RUN addgroup -S $USER && \
+    adduser -h $ROOT -G $USER -S $USER
+
+RUN npm install
+
+RUN npm run build:react
+
+RUN npm cache clean --force
+
+CMD ["/usr/local/bin/npm start"]

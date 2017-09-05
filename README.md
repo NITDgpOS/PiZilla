@@ -1,6 +1,7 @@
 PiZilla
 =======
 [![Build Status](https://travis-ci.org/nkprince007/PiZilla.svg?branch=master)](https://travis-ci.org/nkprince007/PiZilla)
+[![Docker Automated buil](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/nkprince007/pizilla/)
 
 Setting up for production:
 --------------------------

@@ -14,7 +14,9 @@ const storage = multer.diskStorage({
         callback(null, serverConfig.uploads);
     },
     filename: (request, file, callback) => {
-        const filename = file.originalname;
+        let filename = file.originalname;
+        if (file.mimetype.match('video/.*'))
+            filename = `${filename}.mp4`;
         console.info(`Uploading file... ${filename}`);
         callback(null, filename);
     }

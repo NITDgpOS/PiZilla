@@ -28,6 +28,7 @@
     "fs-lock": "^1.2.0",
     "keymirror": "^0.1.1",
     "materialize-css": "^0.100.2",
+    "mime": "^1.4.0",
     "multer": "^1.3.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

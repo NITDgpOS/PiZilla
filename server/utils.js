@@ -1,6 +1,7 @@
 import Promise from 'bluebird';
 import _ from 'underscore';
 import fs from 'fs';
+import mime from 'mime';
 import path from 'path';
 
 export const readdirAsync = Promise.promisify(fs.readdir);
@@ -14,6 +15,7 @@ export async function getFileList(dir) {
             return {
                 extension: isDirectory ? null : path.extname(file),
                 isDirectory,
+                mime: mime.lookup(file),
                 name: file,
                 path: path.resolve(dir, file)
             };

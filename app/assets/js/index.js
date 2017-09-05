@@ -1,4 +1,4 @@
-import '../../node_modules/materialize-css/dist/js/materialize';
+import '../../../node_modules/materialize-css/dist/js/materialize';
 
 $(document).ready(() => {
     $('.button-collapse').sideNav({

@@ -7,7 +7,7 @@ const config = {
         inline: true
     },
     devtool: 'cheap-module-eval-source-map',
-    entry: path.resolve(__dirname, 'src', 'main.js'),
+    entry: path.resolve(__dirname, 'app', 'main.js'),
     module: {
         rules: [
             {

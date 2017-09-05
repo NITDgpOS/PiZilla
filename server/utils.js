@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 export const readdirAsync = Promise.promisify(fs.readdir);
+export const statAsync = Promise.promisify(fs.stat);
 
 export async function getFileList(dir) {
     try {

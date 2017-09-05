@@ -3,7 +3,7 @@ import File from './File';
 import FilesActions from '../actions/FilesActions';
 import PropTypes from 'prop-types';
 import path from 'path';
-import serverConfig from './../../config';
+import serverConfig from './../../server/config';
 
 class SideBar extends Component {
     static propTypes = {

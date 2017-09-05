@@ -22,6 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "cron": "^1.2.1",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
     "fs-lock": "^1.2.0",

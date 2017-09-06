@@ -22,6 +22,7 @@ app.listen(serverConfig.port, () => {
 new CronJob({
     cronTime: serverConfig.deleteSchedule,
     onTick: () => {
+        console.info('RUNNING CLEANUP SCHEDULE...');
         scheduler.cleanUp(serverConfig.uploads);
     },
     start: true,

@@ -7,11 +7,14 @@ function cleanUp (dir) {
     readdirAsync(dir).then((files) => {
         files.forEach((file) => {
             statAsync(path.join(dir, file)).then((stat) => {
-                const deadline = Date.now() - stat.mtimeMs;
+                const deadline = Date.now() - Date.parse(stat.mtime);
+                const deadlineHours = deadline / (3600 * 1000);
                 if (stat.isDirectory())
-                    cleanUp(file);
-                else if (deadline >= serverConfig.deadline)
-                    fs.unlink(path.join(dir, file));
+                    cleanUp(path.join(dir, file));
+                else if (deadline >= serverConfig.deadline) {
+                    fs.unlinkSync(path.join(dir, file));
+                    console.info(`Deleted file...${file}`);
+                }
             });
         });
     }).catch((err) => console.error(err));

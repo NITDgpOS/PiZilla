@@ -1,7 +1,6 @@
 @import '../../../node_modules/react-dropzone-component/styles/filepicker.css';
 @import '../../../node_modules/dropzone/dist/min/dropzone.min.css';
 @import '../../../node_modules/materialize-css/dist/css/materialize.css';
-@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
 
 html {
     display: flex;

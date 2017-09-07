@@ -14,7 +14,7 @@ body, #root {
 }
 
 main {
-    padding-left: 300px;
+    padding-left: 450px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -50,6 +50,10 @@ main {
 }
 
 /* SideNav */
+
+#slide-out {
+    width: 450px;
+}
 
 #slide-out a.title {
     font-weight: lighter;
@@ -87,9 +91,17 @@ a.button-collapse {
 }
 
 @media only screen and (max-width : 992px) {
+    #slide-out {
+        width: 300px;
+    }
+
     a.button-collapse {
         display: block !important;
     }
+}
+
+a.button-collapse {
+    z-index: 1;
 }
 
 a.button-collapse i.fa::before {

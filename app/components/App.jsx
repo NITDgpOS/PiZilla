@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DropZone from './DropZone';
+import Footer from './Footer';
 import PropTypes from 'prop-types';
 import SideBar from './SideBar';
 import { connect } from 'react-redux';
@@ -15,6 +16,7 @@ class App extends Component {
             <main>
                 <SideBar { ...store } />
                 <DropZone path={ store.path } />
+                <Footer />
             </main>
         );
     }

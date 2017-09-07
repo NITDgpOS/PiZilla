@@ -1,4 +1,5 @@
 node_modules
 public
-uploads
+uploads/*
+!uploads/.gitkeep
 .cache.json

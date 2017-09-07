@@ -12,27 +12,20 @@ class File extends Component {
         path: PropTypes.string
     };
 
-    constructor(props) {
-        super(props);
-        this.changePath = this.changeDirectory.bind(this);
-        this.getDownloadLink = this.getDownloadLink.bind(this);
-        this.getIconByMime = this.getIconByMime.bind(this);
-    }
-
-    changeDirectory(event) {
+    changeDirectory = (event) => {
         event.preventDefault();
         FilesActions.changeDirectory(event.target.dataset.path);
     }
 
-    getViewLink(path) {
+    getViewLink = (path) => {
         return `/view/${encodeURIComponent(path)}`;
     }
 
-    getDownloadLink(path) {
+    getDownloadLink = (path) => {
         return `/download?path=${encodeURIComponent(path)}`;
     }
 
-    getIconByMime(type) {
+    getIconByMime = (type) => {
         if (type.startsWith('video/'))
             return 'film';
         if (type.startsWith('image/'))
@@ -46,7 +39,7 @@ class File extends Component {
         return 'file-o';
     }
 
-    render() {
+    render = () => {
         const path = this.props.path;
         const name = this.props.name;
         const mimetype = this.props.mime;

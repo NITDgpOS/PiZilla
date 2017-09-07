@@ -7,7 +7,7 @@ import path from 'path';
 export const readdirAsync = Promise.promisify(fs.readdir);
 export const statAsync = Promise.promisify(fs.stat);
 
-export async function getFileList(dir) {
+const getFileList = async (dir) => {
     try {
         const files = await readdirAsync(dir);
         const data = files.map((file) => {
@@ -25,4 +25,8 @@ export async function getFileList(dir) {
         console.error(err);
     }
     return null;
-}
+};
+
+export default {
+    getFileList
+};

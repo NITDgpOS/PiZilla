@@ -25,11 +25,11 @@ class DropZone extends Component {
         this.dropzone = null;
     }
 
-    success(file, path) {
+    success = (file, path) => {
         FilesActions.updateFileList(path);
     }
 
-    render() {
+    render = () => {
         const config = this.componentConfig;
         const djsConfig = this.djsConfig;
         const path = this.props.path;

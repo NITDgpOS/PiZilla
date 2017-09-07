@@ -14,7 +14,9 @@ class DropZone extends Component {
         // For a full list of possible configurations,
         // please consult http://www.dropzonejs.com/#configuration
         this.djsConfig = {
-            maxFilesize: 4096 //MB
+            maxFilesize: 4096, //MB
+            parallelUploads: 10,
+            uploadMultiple: true
         };
 
         this.componentConfig = {

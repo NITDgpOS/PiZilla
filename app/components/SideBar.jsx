@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import File from './File';
 import FilesActions from '../actions/FilesActions';
+import { Icon } from 'react-fa';
 import PropTypes from 'prop-types';
 import path from 'path';
 import serverConfig from './../../server/config';
@@ -36,7 +37,7 @@ class SideBar extends Component {
                     {list}
                 </ul>
                 <a href="#" data-activates="slide-out" className="button-collapse">
-                    <i className="fa fa-bars" />
+                    <Icon Component="i" name="bars" />
                 </a>
             </div>
         );

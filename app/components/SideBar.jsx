@@ -11,11 +11,11 @@ class SideBar extends Component {
         path: PropTypes.string
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         FilesActions.updateFileList(this.props.path);
     }
 
-    render() {
+    render = () => {
         const dirpath = this.props.path;
         const parentDir = {
             extension: null,

@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import serverConfig from './config';
 
-function cleanUp (dir) {
+const cleanUp = (dir) => {
     readdirAsync(dir).then((files) => {
         files.forEach((file) => {
             statAsync(path.join(dir, file)).then((stat) => {
@@ -18,7 +18,7 @@ function cleanUp (dir) {
             });
         });
     }).catch((err) => console.error(err));
-}
+};
 
 export default {
     cleanUp

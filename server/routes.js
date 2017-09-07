@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import fs from 'fs';
-import { getFileList } from './utils';
 import multer from 'multer';
 import path from 'path';
 import serverConfig from './config';
+import utils from './utils';
 import webpackConfig from './../webpack.config';
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -48,7 +48,7 @@ router.get('/files', (req, res) => {
     let curDir = serverConfig.uploads;
     const query = req.query.path || '';
     if (query) curDir = path.resolve(query);
-    getFileList(curDir).then((data) => {
+    utils.getFileList(curDir).then((data) => {
         if (data === null)
             res.json({ 'error': `Access denied: '${curDir}'` }).end(403);
         else

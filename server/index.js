@@ -25,6 +25,7 @@ new CronJob({
         console.info('RUNNING CLEANUP SCHEDULE...');
         scheduler.cleanUp(serverConfig.uploads);
     },
+    runOnInit: true,
     start: true,
     timeZone: 'Asia/Kolkata'
 });

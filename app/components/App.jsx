@@ -9,7 +9,7 @@ class App extends Component {
         store: PropTypes.object
     };
 
-    render() {
+    render = () => {
         const store = this.props.store;
         return (
             <main>
@@ -20,8 +20,8 @@ class App extends Component {
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return { store: { ...state } };
-}
+};
 
 export default connect(mapStateToProps)(App);

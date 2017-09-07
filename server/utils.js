@@ -1,4 +1,3 @@
-import _ from 'underscore';
 import fs from 'fs';
 import mime from 'mime';
 import path from 'path';
@@ -20,7 +19,7 @@ const getFileList = async (dir) => {
                 path: path.resolve(dir, file)
             };
         });
-        return _.sortBy(data, (file) => file.name);
+        return data.sort((a, b) => a.name.localeCompare(b.name));
     } catch (err) {
         console.error(err);
     }

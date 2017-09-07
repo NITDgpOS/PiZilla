@@ -1,7 +1,15 @@
 import fs from 'fs';
 import mime from 'mime';
 import path from 'path';
-import { promisify } from 'util';
+
+const promisify = (fn) => {
+    return (...args) => new Promise((resolve, reject) => {
+        const callback = (err, data) => {
+            return err ? reject(err) : resolve(data);
+        };
+        return fn.apply(this, [...args, callback]);
+    });
+};
 
 export const readdirAsync = promisify(fs.readdir);
 export const statAsync = promisify(fs.stat);

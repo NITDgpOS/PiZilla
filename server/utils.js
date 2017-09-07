@@ -1,11 +1,11 @@
-import Promise from 'bluebird';
 import _ from 'underscore';
 import fs from 'fs';
 import mime from 'mime';
 import path from 'path';
+import { promisify } from 'util';
 
-export const readdirAsync = Promise.promisify(fs.readdir);
-export const statAsync = Promise.promisify(fs.stat);
+export const readdirAsync = promisify(fs.readdir);
+export const statAsync = promisify(fs.stat);
 
 const getFileList = async (dir) => {
     try {

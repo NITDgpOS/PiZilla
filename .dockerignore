@@ -1,4 +1,5 @@
 **/node_modules
 **/.git
-**/uploads
+uploads/*
+!uploads/.gitkeep
 .cache.json

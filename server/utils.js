@@ -2,7 +2,7 @@ import fs from 'fs';
 import mime from 'mime';
 import path from 'path';
 
-const promisify = (fn) => {
+export const promisify = (fn) => {
     return (...args) => new Promise((resolve, reject) => {
         const callback = (err, data) => {
             return err ? reject(err) : resolve(data);
@@ -13,12 +13,14 @@ const promisify = (fn) => {
 
 export const readdirAsync = promisify(fs.readdir);
 export const statAsync = promisify(fs.stat);
+export const unlinkAsync = promisify(fs.unlink);
 
-const getFileList = async (dir) => {
+export const getFileList = async (dir) => {
     try {
         const files = await readdirAsync(dir);
-        const data = files.map((file) => {
-            const isDirectory = fs.statSync(path.join(dir, file)).isDirectory();
+        const data = await Promise.all(files.map(async (file) => {
+            const stat = await statAsync(path.join(dir, file));
+            const isDirectory = stat.isDirectory();
             return {
                 extension: isDirectory ? null : path.extname(file),
                 isDirectory,
@@ -26,14 +28,10 @@ const getFileList = async (dir) => {
                 name: file,
                 path: path.resolve(dir, file)
             };
-        });
+        }));
         return data.sort((a, b) => a.name.localeCompare(b.name));
     } catch (err) {
         console.error(err);
     }
     return null;
-};
-
-export default {
-    getFileList
 };

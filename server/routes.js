@@ -1,9 +1,8 @@
+import { getFileList, statAsync } from './utils';
 import { Router } from 'express';
-import fs from 'fs';
 import multer from 'multer';
 import path from 'path';
 import serverConfig from './config';
-import utils from './utils';
 import webpackConfig from './../webpack.config';
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -17,7 +16,7 @@ const storage = multer.diskStorage({
         let filename = file.originalname;
         if (file.mimetype.match('video/.*'))
             filename = `${filename}.mp4`;
-        console.info(`Uploading file... ${filename}`);
+        console.info(`UPLOADING FILE... ${filename}`);
         callback(null, filename);
     }
 });
@@ -35,25 +34,24 @@ router.post('/upload', upload.any(), (req, res) => {
     return res.status( 200 ).send(req.files);
 });
 
-router.get('/download', (req, res) => {
+router.get('/download', async (req, res) => {
     if (!req.query.path) res.end();
     else {
         const filePath = path.resolve(req.query.path);
-        const isFile = fs.statSync(filePath).isFile();
+        const isFile = await statAsync(filePath).isFile();
         if (isFile) res.download(filePath);
     }
 });
 
-router.get('/files', (req, res) => {
+router.get('/files', async (req, res) => {
     let curDir = serverConfig.uploads;
     const query = req.query.path || '';
     if (query) curDir = path.resolve(query);
-    utils.getFileList(curDir).then((data) => {
-        if (data === null)
-            res.json({ 'error': `Access denied: '${curDir}'` }).end(403);
-        else
-            res.json(data);
-    });
+    const files = await getFileList(curDir);
+    if (files === null)
+        res.json({ 'error': `Access denied: ${curDir}` }).end(403);
+    else
+        res.json(files);
 });
 
 export default router;

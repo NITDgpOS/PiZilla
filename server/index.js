@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 
 app.use(router);
 app.listen(serverConfig.port, () => {
-    console.info('Express backend started at ' +
+    console.info('EXPRESS SERVER STARTED AT ' +
         `http://localhost:${serverConfig.port}/`);
 });
 

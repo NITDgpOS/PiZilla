@@ -21,10 +21,12 @@
   "repository": "https://github.com/nkprince007/PiZilla.git",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "cron": "^1.2.1",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
     "fs-lock": "^1.2.0",
+    "get-form-data": "^1.2.5",
     "keymirror": "^0.1.1",
     "materialize-css": "^0.100.2",
     "mime": "^1.4.0",
@@ -37,7 +39,8 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^4.4.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "shelljs": "^0.7.8"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -52,7 +55,7 @@
     "babel-register": "^6.26.0",
     "concurrently": "^3.5.0",
     "css-loader": "^0.28.7",
-    "eslint": "^4.6.0",
+    "eslint": "^4.6.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-react": "^7.3.0",
     "file-loader": "^0.11.2",

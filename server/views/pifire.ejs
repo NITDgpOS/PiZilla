@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PiFire</title>
+    <link rel="stylesheet" type="text/css" href="/pifire-static/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="/pifire-static/img/favicon.ico"/>
+    <script src="https://use.fontawesome.com/1243d5832f.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="/pifire-static/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body class="red darken-2">
+
+    <div id="main" class="center-align">
+      <div id="header" class="row">
+        <h3>PiFire</h3>
+      </div>
+
+      <div id="inputbox" class="row">
+        <form method="post" class="col">
+            <div class="row">
+                <div class="input-field">
+                  <input type="text" id="url" name="url" class="validate" placeholder="Paste your url here" required>
+                </div>
+            </div>
+              <div class="row" id="selection">
+                <p class="text col">I want </p>
+                <p class="radio col" id="file">
+                  <input onclick="showDownloadBtn();" class="with-gap" value="file" name="group1" type="radio" id="test1"/>
+                  <label for="test1">File</label>
+                </p>
+                <p class="radio col" id="music">
+                  <input onclick="showDownloadBtn();" class="with-gap" value="music" name="group1" type="radio" id="test2"/>
+                  <label for="test2">Music</label>
+                </p>
+                <p class="col">  
+                <button>
+                  <i id="downloadbtn" class="material-icons">cloud_download</i>
+                </button>
+                </p>
+              </div>
+          </form>
+        </div>
+    </div>
+
+        <footer class="grey darken-4">
+          <p class="center">
+              <i class="fa fa-copyright" aria-hidden="true"></i>
+              <a id="text" href="https://github.com/nit-dgp/PiZilla">NITDgpOS</a>
+          </p>
+        </footer>
+    
+  </body>
+</html>

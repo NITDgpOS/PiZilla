@@ -1,10 +1,10 @@
-import bodyparser from 'body-parser';
 import { getFileList, statAsync } from './utils';
 import { Router } from 'express';
+import bodyparser from 'body-parser';
+import { exec } from 'child_process';
 import multer from 'multer';
 import path from 'path';
 import serverConfig from './config';
-import shell from 'shelljs';
 import webpackConfig from './../webpack.config';
 
 
@@ -75,17 +75,20 @@ router.post('/pifire', urlencodedParser, (req, res) => {
         type = '-f 140';
     }
 
-    // --embed-thumbnail --add-metadata 
-    // shell.exec(`youtube-dl ${type} --get-filename --restrict-filenames --no-warnings --no-check-certificate -o '%(title)s.%(ext)s' ${url}`, (_,filename) => {
-    //          filename = filename.slice(0,filename.length - 1);
-    // });
+    exec(`youtube-dl ${type} --no-check-certificate ` +
+         '-c --audio-quality 0 --restrict-filenames --no-warnings ' +
+         `--no-check-certificate -o ${file}'%(title)s.%(ext)s' ` +
+         `"${url}"`, (error) => {
+        if (error) console.error(error);
+        else exec(`youtube-dl ${type} --no-check-certificate ` +
+                      '-c --recode-video mp4 --restrict-filenames' +
+                      ` --no-warnings -o ${file}'%(title)s.%(ext)s' "${url}"`,
+        (error) => {
+            if (error) console.error(error);
+        });
+    });
+
     res.redirect('/pifire');
-
-    if (shell.exec(`youtube-dl ${type} --no-check-certificate -c --audio-quality 0 --restrict-filenames --no-warnings --no-check-certificate -o ${file}'%(title)s.%(ext)s' "${url}"`).code !== 0) {
-        type = '';
-        shell.exec(`youtube-dl ${type} --no-check-certificate -c --recode-video mp4 --restrict-filenames --no-warnings -o ${file}'%(title)s.%(ext)s' "${url}"`);
-    }   
-
 });
 
 

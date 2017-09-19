@@ -3,7 +3,7 @@ MAINTAINER Naveen Kumar Sangi <nkprince007@gmail.com>
 
 ENV USER=node_server ROOT=/usr/src/app
 
-EXPOSE 80:8000
+EXPOSE 8000
 
 WORKDIR $ROOT
 
@@ -18,4 +18,4 @@ RUN npm run build:react
 
 RUN npm cache clean --force
 
-CMD ["/usr/local/bin/npm start"]
+CMD ["npm", "start"]

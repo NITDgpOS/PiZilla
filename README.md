@@ -64,6 +64,7 @@ Start the **Express** server with `npm start` or `yarn start`.
 
 Generate the automated image 🐳 via `docker build -t pizilla .`
 
+Then run it via `docker run -p 80:8000 pizilla`
 
 [nitdgpos]: https://github.com/NIT-dgp
 [express]: https://expressjs.com

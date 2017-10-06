@@ -21,6 +21,7 @@
   "repository": "https://github.com/nkprince007/PiZilla.git",
   "license": "MIT",
   "dependencies": {
+    "babel-core": "^6.26.0",
     "body-parser": "^1.17.2",
     "cron": "^1.2.1",
     "ejs": "^2.5.7",

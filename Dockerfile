@@ -14,7 +14,7 @@ RUN addgroup -S $USER && \
 
 RUN npm install
 
-RUN npm run build:react
+RUN npm run build
 
 RUN npm cache clean --force
 

@@ -3,7 +3,7 @@ import DropzoneComponent from 'react-dropzone-component';
 import FilesActions from './../actions/FilesActions';
 import PropTypes from 'prop-types';
 
-class DropZone extends Component {
+export class DropZone extends Component {
     static propTypes = {
         path: PropTypes.string
     }
@@ -50,5 +50,3 @@ class DropZone extends Component {
         );
     }
 }
-
-export default DropZone;

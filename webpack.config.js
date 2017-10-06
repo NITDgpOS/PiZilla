@@ -2,18 +2,22 @@ const path = require('path');
 const Webpack = require('webpack');
 
 const config = {
-    devServer: {
-        hot: true,
-        inline: true
-    },
-    devtool: 'cheap-module-eval-source-map',
-    entry: path.resolve(__dirname, 'app', 'main.js'),
+    devtool: 'source-map',
+    entry: [
+        'webpack-dev-server/client?http://localhost:8080',
+        'webpack/hot/only-dev-server',
+        path.resolve(__dirname, 'app', 'main.tsx')
+    ],
     module: {
         rules: [
             {
                 exclude: /node_modules/,
-                test: /\.js(x)?$/,
-                use: 'babel-loader'
+                test: /\.(t|j)sx?$/,
+                loader: 'awesome-typescript-loader',
+                options: {
+                    instance: 'frontend',
+                    configFileName: 'tsconfig.react.json'
+                }
             },
             {
                 test: /\.css$/,
@@ -58,7 +62,7 @@ const config = {
         new Webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
-        'extensions': ['.js', '.jsx', '.css']
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.css']
     }
 };
 

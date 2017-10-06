@@ -5,10 +5,10 @@ import './assets/js/index';
 import App from './components/App';
 import { Provider } from 'react-redux';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
-import store from './misc/store';
+import { store } from './misc/store';
 
 ReactDOM.render(
     <Provider store={ store }><App /></Provider>,

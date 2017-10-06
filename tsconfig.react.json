@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "outDir": "./public",
+        "sourceMap": true,
+        "strictNullChecks": true,
+        "module": "es6",
+        "jsx": "react",
+        "target": "es5",
+        "allowJs": true,
+        "strict": true,
+        "alwaysStrict": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "lib": [
+            "dom",
+            "es5",
+            "scripthost",
+            "es2015.promise",
+            "es2015.core"
+        ]
+    },
+    "include": [
+        "./app",
+    ],
+    "exclude": [
+        "./node_modules"
+    ]
+}

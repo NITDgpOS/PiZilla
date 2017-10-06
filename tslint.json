@@ -1,0 +1,19 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "cliOptions": {
+        "exclude": [
+            "public",
+            "node_modules"
+        ]
+    },
+    "jsRules": {},
+    "rules": {
+        "no-console": false,
+        "quotemark": [true, "single"],
+        "typedef": [true, "call-signature", "parameter", "member-variable-declaration"]
+    },
+    "rulesDirectory": []
+}

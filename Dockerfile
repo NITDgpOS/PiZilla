@@ -1,5 +1,5 @@
 FROM node:alpine
-LABEL maintainer "Naveen Kumar Sangi <nkprince007@gmail.com>"
+MAINTAINER Naveen Kumar Sangi <nkprince007@gmail.com>
 
 ENV USER=node_server ROOT=/usr/src/app
 
@@ -14,7 +14,7 @@ RUN addgroup -S $USER && \
 
 RUN npm install
 
-RUN npm run build
+RUN npm run build:react
 
 RUN npm cache clean --force
 

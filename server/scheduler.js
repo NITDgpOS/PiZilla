@@ -1,18 +1,18 @@
 import { readdirAsync, statAsync, unlinkAsync } from './utils';
-import { join } from 'path';
+import path from 'path';
 import serverConfig from './config';
 
-const cleanUp = async (dir: string) => {
+const cleanUp = async (dir) => {
     try {
         const files = await readdirAsync(dir);
-        files.forEach(async (file: string) => {
-            const stat = await statAsync(join(dir, file));
-            const deadline = Date.now() - new Date(stat.mtime).getMilliseconds();
+        files.forEach(async (file) => {
+            const stat = await statAsync(path.join(dir, file));
+            const deadline = Date.now() - Date.parse(stat.mtime);
             const deadlineHours = deadline / (3600 * 1000);
             if (stat.isDirectory())
-                cleanUp(join(dir, file));
+                cleanUp(path.join(dir, file));
             else if (deadlineHours >= serverConfig.deadline) {
-                await unlinkAsync(join(dir, file));
+                await unlinkAsync(path.join(dir, file));
                 console.info(`DELETED FILE... ${file}`);
             }
         });

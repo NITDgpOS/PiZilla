@@ -1,4 +1,4 @@
-import config from './../../server/config.ts';
+import config from './../../server/config';
 import keys from './../misc/keys';
 
 export default (state = {

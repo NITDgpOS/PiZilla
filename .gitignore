@@ -3,4 +3,3 @@ public
 uploads/*
 !uploads/.gitkeep
 .cache.json
-dist

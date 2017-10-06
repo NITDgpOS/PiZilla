@@ -4,7 +4,7 @@ import FilesActions from '../actions/FilesActions';
 import { Icon } from 'react-fa';
 import PropTypes from 'prop-types';
 import path from 'path';
-import serverConfig from './../../server/config.ts';
+import serverConfig from './../../server/config';
 
 class SideBar extends Component {
     static propTypes = {

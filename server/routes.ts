@@ -1,17 +1,17 @@
 import { getFileList, statAsync } from './utils';
-import { Router } from 'express';
-import bodyparser from 'body-parser';
+import { Router, Request, Response } from 'express';
+import * as bodyparser from 'body-parser';
 import { exec } from 'child_process';
-import multer from 'multer';
-import path from 'path';
+import * as multer from 'multer';
+import * as path from 'path';
 import serverConfig from './config';
-import webpackConfig from './../webpack.config';
+import * as webpackConfig from './../webpack.config';
 
 
 const urlencodedParser = bodyparser.urlencoded({ extended: true });
 const isProduction = process.env.NODE_ENV === 'production';
 const outputFile = webpackConfig.output.filename;
-const router = new Router();
+const router = Router();
 const storage = multer.diskStorage({
     destination: (request, file, callback) => {
         callback(null, serverConfig.uploads);
@@ -27,27 +27,18 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Routes
-router.get('/', (req, res) => {
+router.get('/', (req: Request, res: Response) => {
     res.render('index', {
         bundle: (isProduction ? '/' : 'http://localhost:8080/') + outputFile,
         title: 'PiZilla'
     });
 });
 
-router.post('/upload', upload.any(), (req, res) => {
+router.post('/upload', upload.any(), (req: Request, res: Response) => {
     return res.status( 200 ).send(req.files);
 });
 
-router.get('/download', async (req, res) => {
-    if (!req.query.path) res.end();
-    else {
-        const filePath = path.resolve(req.query.path);
-        const isFile = await statAsync(filePath).isFile();
-        if (isFile) res.download(filePath);
-    }
-});
-
-router.get('/files', async (req, res) => {
+router.get('/files', async (req: Request, res: Response) => {
     let curDir = serverConfig.uploads;
     const query = req.query.path || '';
     if (query) curDir = path.resolve(query);
@@ -58,11 +49,11 @@ router.get('/files', async (req, res) => {
         res.json(files);
 });
 
-router.get('/pifire', (_, res) => {
+router.get('/pifire', (_: Request, res: Response) => {
     res.render('pifire');
 });
 
-router.post('/pifire', urlencodedParser, (req, res) => {
+router.post('/pifire', urlencodedParser, (req: Request, res: Response) => {
     const response = {
         selection_radio: req.body.group1,
         url_input: req.body.url

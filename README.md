@@ -22,6 +22,9 @@ We use **[eslint:recommended][eslint]** superimposed by a few good and easy
 changes, especially for ReactJS. Check our eslint configuration
 [here](/.eslintrc). 🔧
 
+We follow a fairly simple of [Code of Conduct](/.github/CODE_OF_CONDUCT.md)
+based on Contributor Covenant.
+
 ## Setting up 🛠 the environment
 
 Assuming you've **[node][node]** installed on your system, install all the
@@ -34,7 +37,7 @@ That's it! Happy hacking...
 
 ## Wish to help us?
 
-Please check our contribution guide [here](/CONTRIBUTING.md).
+Please check our contribution guide [here](/.github/CONTRIBUTING.md).
 
 ## Setting up for production 🛳
 

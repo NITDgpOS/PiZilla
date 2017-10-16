@@ -1,9 +1,11 @@
-# PiZilla
+![PiZilla](/.github/assets/PiZilla-text.png)
+
+***
 
 [![Build Status](https://travis-ci.org/NIT-dgp/PiZilla.svg?branch=master)](https://travis-ci.org/NIT-dgp/PiZilla)
 [![Docker Automated buil](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/nitdgpos/pizilla/)
 
-### Made with ❤️ and 🍕 by [NITDgpOS][nitdgpos]
+***
 
 ## How we code it 💻
 
@@ -68,6 +70,12 @@ Start the **Express** server with `npm start` or `yarn start`.
 Generate the automated image 🐳 via `docker build -t pizilla .`
 
 Then run it via `docker run -p 80:8000 pizilla`
+
+***
+
+## Throughput Graph
+
+[![Throughput Graph](https://graphs.waffle.io/NIT-dgp/PiZilla/throughput.svg)](https://waffle.io/NIT-dgp/PiZilla/metrics/throughput)
 
 [nitdgpos]: https://github.com/NIT-dgp
 [express]: https://expressjs.com

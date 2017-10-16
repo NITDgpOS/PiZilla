@@ -5,7 +5,7 @@ import { exec } from 'child_process';
 import multer from 'multer';
 import path from 'path';
 import serverConfig from './config';
-import webpackConfig from './../webpack.config';
+import webpackConfig from './../webpack.config.babel';
 
 
 const urlencodedParser = bodyparser.urlencoded({ extended: true });

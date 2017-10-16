@@ -1,5 +1,5 @@
-const config = require('./webpack.config');
-const webpack = require('webpack');
+import config from './webpack.config.babel';
+import webpack from 'webpack';
 
 config.plugins = [
     new webpack.DefinePlugin({
@@ -17,4 +17,4 @@ config.plugins = [
 delete config.devServer;
 delete config.devtool;
 
-module.exports = config;
+export default config;

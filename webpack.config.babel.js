@@ -1,5 +1,5 @@
-const path = require('path');
-const Webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 
 const config = {
     devServer: {
@@ -54,12 +54,12 @@ const config = {
         path: path.resolve(__dirname, 'public')
     },
     plugins: [
-        new Webpack.optimize.OccurrenceOrderPlugin(),
-        new Webpack.HotModuleReplacementPlugin()
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
         'extensions': ['.js', '.jsx', '.css']
     }
 };
 
-module.exports = config;
+export default config;

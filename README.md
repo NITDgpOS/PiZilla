@@ -8,7 +8,7 @@
 
 ***
 
-## How we code it 💻
+# How we code it 💻
 
 **PiZilla** is built entirely using **[Express][express]** and
 **[ReactJS][react]**. Transpiled using **[Babel][babel]** with
@@ -19,13 +19,14 @@ The codebase holds [EcmaScript 2016][es7] syntax along with extensions for
 [transform-runtime][tr], [transform-class-properties][tcp]
 and [transform-object-rest-spread][tors] operators.
 
-## Configuring Piilla 🛠
+# Configuring Piilla 🛠
 
-- Install all dependencies with `npm install` or `yarn` (if you use **[yarn][yarn]**).
-- To run the server for development on localhost, use `npm run dev` or `yarn dev`. (includes support for live reload)
+- Install all dependencies with `npm install` or `yarn` (if you use
+  **[yarn][yarn]**).
+- To run the server for development on localhost, use `npm run dev` or `yarn dev`.
+  (includes support for live reload)
 - Build the react application with `npm run build:react` or `yarn build:react`.
-- Configure your backend server accordingly at
-[server/config.js](/server/config.js).
+- Configure your backend server accordingly at [server/config.js](/server/config.js).
 
 ```javascript
 const config = {
@@ -43,15 +44,15 @@ const config = {
 
 ***
 
-## Throughput Graph
+# Throughput Graph
 
 [![Throughput Graph](https://graphs.waffle.io/NIT-dgp/PiZilla/throughput.svg)](https://waffle.io/NIT-dgp/PiZilla/metrics/throughput)
 
-## 🌍 Important Links
+# 🌍 Important Links
+
 - [Contribution Guidelines](/.github/CONTRIBUTING.md)
 - [Code of Conduct](/.github/CODE_OF_CONDUCT.md)
 - [eslint configuration](/.eslintrc)
-
 
 [nitdgpos]: https://github.com/NIT-dgp
 [express]: https://expressjs.com

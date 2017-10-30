@@ -1,5 +1,5 @@
 FROM node:alpine
-MAINTAINER Naveen Kumar Sangi <nkprince007@gmail.com>
+LABEL MAINTAINER Naveen Kumar Sangi <naveenkumarsangi@protonmail.com>
 
 ENV USER=node_server ROOT=/usr/src/app
 

@@ -5,9 +5,14 @@ node_js:
     - "7"
     - "6"
 
+before_install:
+    - rvm install 2.4.2
+
 install:
     - npm install
+    - gem install mdl
 
 script:
-    - npm run lint
-    - npm run build:react
+    - mdl -g .  # checking markdown lint status
+    - npm run lint  # checking eslint status
+    - npm run build:react  # verifying frontend build

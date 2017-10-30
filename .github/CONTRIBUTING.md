@@ -11,16 +11,16 @@ contribution should be followed if you want to submit a pull request.
 * You need a [GitHub account](https://github.com/signup/free)
 * Submit an [issue ticket](https://github.com/NIT-dgp/PiZilla/issues)
   for your issue if there is no one yet.
-	* Describe the issue and include steps to reproduce if it's a bug.
-	* Ensure to mention the earliest version that you know is affected.
+  * Describe the issue and include steps to reproduce if it's a bug.
+  * Ensure to mention the earliest version that you know is affected.
 * If you are able and want to fix this, fork the repository on GitHub.
 
 ## Make Changes
 
 * In your forked repository, create a topic branch for your upcoming
   patch. (e.g. `feature/new-backend` or `bug/auth-fails`)
-	* Usually this is based on the `master` branch.
-	* Create a branch based on master `git branch bug/auth-fails master`
+  * Usually this is based on the `master` branch.
+  * Create a branch based on master `git branch bug/auth-fails master`
       then checkout the new branch with `git checkout bug/auth-fails`.
       Please avoid working directly on the `master` branch.
 * Make commits of logical units and describe them properly.
@@ -42,7 +42,7 @@ contribution should be followed if you want to submit a pull request.
   push or merge pull-requests. Let another team member review your
   pull request and approve.
 
-# Additional Resources
+## Additional Resources
 
 * [General GitHub documentation](http://help.github.com/)
 * [GitHub pull request documentation](http://help.github.com/send-pull-requests/)
@@ -52,7 +52,7 @@ contribution should be followed if you want to submit a pull request.
 * [Learn EcmaScript by coding](http://es6katas.org)
 * [Getting started with ReactJS](https://facebook.github.io/react)
 
-# Notes
+## Notes
 
 This documented is based in the work from [anselmh/CONTRIBUTING.md](https://github.com/anselmh/CONTRIBUTING.md),
 licensed as [Creative Commons Attribution 3.0 Unported License](https://github.com/anselmh/CONTRIBUTING.md/blob/master/README.md#license).

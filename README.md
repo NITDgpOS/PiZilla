@@ -25,7 +25,7 @@ and [transform-object-rest-spread][tors] operators.
   **[yarn][yarn]**).
 - To run the server for development on localhost, use `npm run dev` or `yarn dev`.
   (includes support for live reload)
-- Build the react application with `npm run build:react` or `yarn build:react`.
+- Build the react application with `npm run build` or `yarn build`.
 - Configure your backend server accordingly at [server/config.js](/server/config.js).
 
 ```javascript

@@ -15,4 +15,4 @@ install:
 script:
     - mdl -g .  # checking markdown lint status
     - npm run lint  # checking eslint status
-    - npm run build:react  # verifying frontend build
+    - npm run build  # verifying frontend build

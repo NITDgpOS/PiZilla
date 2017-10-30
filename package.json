@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -fr public",
     "lint": "eslint .",
-    "build:react": "npm run clean && webpack --config webpack.config.prod.babel.js",
+    "build": "npm run clean && webpack --config webpack.config.prod.babel.js",
     "webpack:react": "webpack-dev-server --config webpack.config.babel.js",
     "server": "BABEL_CACHE_PATH=.cache.json nodemon .",
     "dev": "npm run clean && concurrently \"npm run webpack:react\" \"npm run server\"",

@@ -19,7 +19,7 @@ The codebase holds [EcmaScript 2016][es7] syntax along with extensions for
 [transform-runtime][tr], [transform-class-properties][tcp]
 and [transform-object-rest-spread][tors] operators.
 
-# Configuring Piilla 🛠
+# Configuring PiZilla 🛠
 
 - Install all dependencies with `npm install` or `yarn` (if you use
   **[yarn][yarn]**).
@@ -38,7 +38,7 @@ const config = {
 };
 ```
 
-- Start the **Express** server with `npm stat` or `yarn start`.
+- Start the **Express** server with `npm start` or `yarn start`.
 
 > Note: Make sure you have write access to the **uploads** folder. 👍🏻
 

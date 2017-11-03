@@ -11,4 +11,7 @@ const config = {
     uploads: 'uploads'
 };
 
+if (process.env.PORT)
+    config.port = process.env.PORT;
+
 export default config;

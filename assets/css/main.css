@@ -50,6 +50,10 @@ main {
 
 /* SideNav */
 
+.side-nav li > a {
+    padding: 0 10px !important;
+}
+
 #slide-out {
     width: 450px;
 }
@@ -113,4 +117,34 @@ a.button-collapse i.fa::before {
 footer p {
     margin-top: 0;
     font-size: 1.2em;
+}
+
+/* Search */
+
+.search {
+    width: calc(100% - 20px) !important;
+    padding: 5px 10px !important;
+    margin: 0px !important;
+}
+
+.search:after {
+    content: '<i class="fa fa-search">dfdfd</i>' !important;
+}
+
+.react-autosuggest__suggestions-container {
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    cursor: pointer;
+}
+
+.react-autosuggest__suggestion:hover {
+    background-color: #eeeded;
+}
+
+.react-autosuggest__container .suggestion {
+    padding: 0px 10px;
+    font-weight: 600;
+    color: #5C6BC0;
 }

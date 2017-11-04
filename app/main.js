@@ -1,6 +1,6 @@
 // load main styles
-import './assets/css/main';
-import './assets/js/index';
+import '../assets/css/main';
+import '../assets/js/index';
 
 import App from './components/App';
 import { Provider } from 'react-redux';

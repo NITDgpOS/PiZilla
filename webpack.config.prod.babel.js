@@ -1,7 +1,10 @@
-import config from './webpack.config.babel';
+import clientConfig from './webpack.config.babel';
+import fs from 'fs';
+import path from 'path';
 import webpack from 'webpack';
 
-config.plugins = [
+clientConfig.name = 'frontend build';
+clientConfig.plugins = [
     new webpack.DefinePlugin({
         'process.env': {
             NODE_ENV: JSON.stringify('production')
@@ -14,7 +17,24 @@ config.plugins = [
         minimize: true
     })
 ];
-delete config.devServer;
-delete config.devtool;
+delete clientConfig.devServer;
+delete clientConfig.devtool;
 
-export default config;
+
+const nodeModules = {};
+fs.readdirSync('node_modules')
+    .filter((x) => ['.bin'].indexOf(x) === -1)
+    .forEach((mod) => nodeModules[mod] = `commonjs ${mod}`);
+
+const serverConfig = { ...clientConfig };
+serverConfig.name = 'backend build';
+serverConfig.entry = path.resolve(__dirname, './server/index.js');
+serverConfig.target = 'node';
+serverConfig.externals = nodeModules;
+serverConfig.output = {
+    filename: 'bundle.server.js',
+    path: path.resolve(__dirname, 'build/server')
+};
+
+
+export default [clientConfig, serverConfig];

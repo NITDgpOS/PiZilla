@@ -40,7 +40,11 @@ const config = {
                 ]
             },
             {
-                test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                test: /\.json$/,
+                use: 'json-loader'
+            },
+            {
+                test: /\.(ttf|eot|svg|html)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 use: [
                     {
                         loader: 'file-loader'
@@ -51,7 +55,7 @@ const config = {
     },
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'public', 'client')
+        path: path.resolve(__dirname, 'build', 'client')
     },
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),

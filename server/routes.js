@@ -5,13 +5,15 @@ import { exec } from 'child_process';
 import multer from 'multer';
 import path from 'path';
 import serverConfig from './config';
+import url from 'url';
 import webpackConfig from './../webpack.config.babel';
 
 
 const urlencodedParser = bodyparser.urlencoded({ extended: true });
 const isProduction = process.env.NODE_ENV === 'production';
-const outputFile = webpackConfig.output.filename;
-const router = new Router();
+const entryPoint = isProduction ? '/build/' : 'http://localhost:8080/';
+
+// file upload configuration
 const storage = multer.diskStorage({
     destination: (request, file, callback) => {
         callback(null, serverConfig.uploads);
@@ -27,9 +29,10 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Routes
+const router = new Router();
 router.get('/', (req, res) => {
     res.render('index', {
-        bundle: (isProduction ? '/' : 'http://localhost:8080/') + outputFile,
+        bundle: url.resolve(entryPoint, webpackConfig.output.filename),
         title: 'PiZilla'
     });
 });
@@ -90,6 +93,5 @@ router.post('/pifire', urlencodedParser, (req, res) => {
 
     res.redirect('/pifire');
 });
-
 
 export default router;

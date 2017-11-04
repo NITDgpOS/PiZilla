@@ -49,7 +49,7 @@ class File extends Component {
             <Icon name={ this.props.icon } /> :
             <Icon name="folder-o" />);
         let link = (
-            <a className="tooltipped" data-position="right" data-delay="40"
+            <a className="tooltipped" target="_blank" data-position="right" data-delay="40"
                 data-tooltip="Download" data-path={ path }
                 href={ this.getViewLink(name) }
             >

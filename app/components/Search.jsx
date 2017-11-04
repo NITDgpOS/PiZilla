@@ -16,8 +16,8 @@ export default class Search extends Component {
         super();
 
         this.state = {
-            value: '',
-            suggestions: []
+            suggestions: [],
+            value: ''
         };
     }
 
@@ -27,6 +27,10 @@ export default class Search extends Component {
         );
     }
 
+    getSuggestionValue = (suggestion) => {
+        return suggestion.name;
+    }
+
     getSuggestions = (value) => {
         const escapedValue = escapeRegexCharacters(value.trim());
 
@@ -34,12 +38,12 @@ export default class Search extends Component {
             return [];
         }
 
-        const regex = new RegExp('^' + escapedValue, 'i');
+        const regex = new RegExp(`^${ escapedValue}`, 'i');
 
-        return this.props.files.filter(file => regex.test(file.name));
+        return this.props.files.filter((file) => regex.test(file.name));
     }
 
-    onChange = (event, { newValue, method }) => {
+    onChange = (event, { newValue }) => {
         this.setState({
             value: newValue
         });
@@ -65,26 +69,26 @@ export default class Search extends Component {
     render() {
         const { value, suggestions } = this.state;
         const inputProps = {
-            placeholder: "Ctrl+Space to search ...",
-            value,
+            autocapitalize: 'off',
+            autocomplete: 'off',
+            autocorrect: 'off',
+            className: 'search',
             onChange: this.onChange,
-            className: "search",
-            autocomplete: "off",
-            autocorrect: "off",
-            autocapitalize: "off",
-            spellcheck: "false"
+            placeholder: 'Ctrl+Space to search ...',
+            spellcheck: 'false',
+            value
         };
 
         return (
             <Autosuggest
                 highlightFirstSuggestion
-                suggestions={suggestions}
-                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                getSuggestionValue={(file) => file.name}
-                renderSuggestion={this.renderSuggestion}
-                onSuggestionSelected={this.onSuggestionSelected}
-                inputProps={inputProps}
+                suggestions={ suggestions }
+                onSuggestionsFetchRequested={ this.onSuggestionsFetchRequested }
+                onSuggestionsClearRequested={ this.onSuggestionsClearRequested }
+                getSuggestionValue={ this.getSuggestionValue }
+                renderSuggestion={ this.renderSuggestion }
+                onSuggestionSelected={ this.onSuggestionSelected }
+                inputProps={ inputProps }
             />
         );
     }

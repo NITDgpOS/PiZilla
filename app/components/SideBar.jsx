@@ -3,9 +3,9 @@ import File from './File';
 import FilesActions from '../actions/FilesActions';
 import { Icon } from 'react-fa';
 import PropTypes from 'prop-types';
+import Search from './Search.jsx';
 import path from 'path';
 import serverConfig from './../../server/config';
-import Search from './Search.jsx';
 
 class SideBar extends Component {
     static propTypes = {
@@ -30,7 +30,7 @@ class SideBar extends Component {
         if (path.resolve(dirpath) !== path.resolve(serverConfig.uploads))
             files.unshift(parentDir);
         const list = files.map((file) => <File key={ file.path } { ...file } />);
-        list.unshift(<li key="search"><Search files={files} /></li>)
+        list.unshift(<li key="search"><Search files={ files } /></li>);
         list.unshift(<li key="title"><a className="title">PiZilla</a></li>);
 
         return (

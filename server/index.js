@@ -5,6 +5,7 @@ import scheduler from './scheduler';
 import serverConfig from './config';
 
 const app = express();
+const port = process.env.PORT || serverConfig.port;
 
 app.use('/assets', express.static('./assets'));
 app.use('/view', express.static(serverConfig.uploads));
@@ -13,9 +14,8 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 
 app.use(router);
-app.listen(serverConfig.port, () => {
-    console.info('EXPRESS SERVER STARTED AT ' +
-        `http://localhost:${serverConfig.port}/`);
+app.listen(port, () => {
+    console.info(`EXPRESS SERVER STARTED AT http://localhost:${port}/`);
 });
 
 

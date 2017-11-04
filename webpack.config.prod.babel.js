@@ -5,11 +5,6 @@ import webpack from 'webpack';
 
 clientConfig.name = 'frontend build';
 clientConfig.plugins = [
-    new webpack.DefinePlugin({
-        'process.env': {
-            NODE_ENV: JSON.stringify('production')
-        }
-    }),
     new webpack.optimize.UglifyJsPlugin({
         compress: {
             warnings: false

@@ -4,7 +4,7 @@
   "description": "A file sharing web application for raspberry-pi-3",
   "scripts": {
     "lint": "eslint .",
-    "build": "rm -fr build/client && webpack --config webpack.config.prod.babel.js",
+    "build": "rm -fr build/client && NODE_ENV=production webpack --config webpack.config.prod.babel.js",
     "dev-client": "webpack-dev-server --config webpack.config.babel.js",
     "dev-server": "babel-watch server",
     "dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",

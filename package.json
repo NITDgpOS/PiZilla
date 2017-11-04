@@ -2,15 +2,13 @@
   "name": "pizilla",
   "version": "0.0.1",
   "description": "A file sharing web application for raspberry-pi-3",
-  "main": "init.js",
   "scripts": {
     "lint": "eslint .",
-    "build-client": "rm -fr public/client && webpack --config webpack.config.prod.babel.js",
-    "build-server": "rm -fr public/server && babel server -d public/server",
+    "build": "rm -fr build/client && webpack --config webpack.config.prod.babel.js",
     "dev-client": "webpack-dev-server --config webpack.config.babel.js",
     "dev-server": "babel-watch server",
     "dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
-    "start": "NODE_ENV=production node ."
+    "start": "NODE_ENV=production node build/server/bundle.server.js"
   },
   "keywords": [
     "file",
@@ -40,6 +38,7 @@
     "eslint-plugin-react": "^7.3.0",
     "express": "^4.15.4",
     "file-loader": "^0.11.2",
+    "json-loader": "^0.5.7",
     "materialize-css": "^0.100.2",
     "mime": "^1.4.0",
     "minimatch": "^3.0.4",

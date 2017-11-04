@@ -3,7 +3,7 @@
 ***
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ace237dc86644d0abee76f7b8511c365)](https://www.codacy.com/app/nkprince007/PiZilla?utm_source=github.com&utm_medium=referral&utm_content=NIT-dgp/PiZilla&utm_campaign=badger)
-[![Build Status](https://travis-ci.org/NIT-dgp/PiZilla.svg?branch=master)](https://travis-ci.org/NIT-dgp/PiZilla)
+[![Build Status](https://travis-ci.org/NITDgpOS/PiZilla.svg?branch=master)](https://travis-ci.org/NITDgpOS/PiZilla)
 [![Docker Automated buil](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/nitdgpos/pizilla/)
 
 ***

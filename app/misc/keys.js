@@ -1,7 +1,8 @@
-import keymirror from 'keymirror';
+const keys = [
+    'ADD_FILE',
+    'CHANGE_FOLDER',
+    'REFRESH_FOLDER',
+    'UPDATE_FILES'
+];
 
-export default keymirror({
-    CHANGE_FOLDER: null,
-    REFRESH_FOLDER: null,
-    UPDATE_FILES: null
-});
+export default keys.reduce((o, key) => ({ ...o, [key]: key }), {});

@@ -31,6 +31,12 @@ main {
     margin: 0px !important;
 }
 
+.ellipsize {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 /* DropZone */
 
 .filepicker {
@@ -50,29 +56,51 @@ main {
 
 /* SideNav */
 
-.side-nav li > a {
-    padding: 0 10px !important;
+.sidebar-header {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+.sidebar-header .searchbar {
+    width: 95%;
+    transition: all 0.3s;
+}
+
+.sidebar-header .searchbar.focused {
+    width: 100%;
+}
+
+.sidebar-header a.title {
+    font-weight: lighter;
+    font-size: 40px;
+    text-align: center;
+    color: black;
+}
+
+.sidebar-header a.title img {
+    width: 100%;
+    height: auto;
+    padding: 20px 60px;
 }
 
 #slide-out {
     width: 450px;
+    flex-direction: column;
+    display: flex;
 }
 
-#slide-out a.title {
-    font-weight: lighter;
-    font-size: 40px;
-    text-align: center;
+#slide-out .file-list {
+    overflow: scroll;
+    margin: 0 !important;
 }
 
 #slide-out a {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-}
-
-#slide-out :nth-child(1) a:hover {
-    background-color: white !important;
 }
 
 .divider {
@@ -88,9 +116,10 @@ a.button-collapse {
     width: 50px;
     height: 50px;
     position: fixed;
-    margin: 5px;
+    margin: 15px;
     display: none;
     color: teal;
+    z-index: 1;
 }
 
 @media only screen and (max-width : 992px) {
@@ -99,17 +128,14 @@ a.button-collapse {
     }
 
     a.button-collapse {
-        display: block !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
     }
 }
 
-a.button-collapse {
-    z-index: 1;
-}
-
 a.button-collapse i.fa::before {
-    margin-left: 18px;
-    position: fixed;
+    flex: 1;
 }
 
 /* Footer */
@@ -125,6 +151,11 @@ footer p {
     width: calc(100% - 20px) !important;
     padding: 5px 10px !important;
     margin: 0px !important;
+    border: 0 !important;
+}
+
+.search:focus {
+    border: 0 !important;
 }
 
 .searchbar {
@@ -157,12 +188,23 @@ footer p {
     cursor: pointer;
 }
 
-.react-autosuggest__suggestion:hover {
+.react-autosuggest__suggestions-list {
+    margin: 0px;
+}
+
+.react-autosuggest__suggestion {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0px 10px;
+}
+
+.react-autosuggest__suggestion--highlighted {
     background-color: #eeeded;
 }
 
 .react-autosuggest__container .suggestion {
-    padding: 0px 10px;
     font-weight: 600;
     color: #5C6BC0;
+    width: 100%;
 }

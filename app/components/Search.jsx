@@ -22,9 +22,14 @@ export default class Search extends Component {
         };
     }
 
+    componentDidMount = () => {
+        this.inputEl = document.querySelector('.sidebar-header .search');
+        this.searchBarEl = document.querySelector('.sidebar-header .searchbar');
+    }
+
     renderSuggestion = (suggestion) => {
         return (
-            <span className='suggestion'>{suggestion.name}</span>
+            <span className='suggestion ellipsize'>{suggestion.name}</span>
         );
     }
 
@@ -39,8 +44,7 @@ export default class Search extends Component {
             return [];
         }
 
-        const regex = new RegExp(`^${ escapedValue}`, 'i');
-
+        const regex = new RegExp(`^${escapedValue}`, 'i');
         return this.props.files.filter((file) => regex.test(file.name));
     }
 
@@ -49,6 +53,14 @@ export default class Search extends Component {
             value: newValue
         });
     };
+
+    onFocus = () => {
+        this.searchBarEl.classList.add('focused');
+    }
+
+    onBlur = () => {
+        this.searchBarEl.classList.remove('focused');
+    }
 
     onSuggestionsFetchRequested = ({ value }) => {
         this.setState({
@@ -78,14 +90,16 @@ export default class Search extends Component {
             autoComplete: 'off',
             autoCorrect: 'off',
             className: 'search',
+            onBlur: this.onBlur,
             onChange: this.onChange,
+            onFocus: this.onFocus,
             placeholder: 'Ctrl+Space to search ...',
             spellCheck: 'false',
             value
         };
 
         return (
-            <div className='searchbar'>
+            <div className='searchbar card'>
                 <Autosuggest
                     highlightFirstSuggestion
                     suggestions={ suggestions }

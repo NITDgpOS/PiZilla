@@ -57,14 +57,12 @@ main {
 /* SideNav */
 
 .sidebar-header {
-    flex: 1 0 auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    margin-bottom: 10px;
     background-color: transparent;
 }
 
 .sidebar-header .searchbar {
+    margin: auto;
     width: 95%;
     transition: all 0.3s;
 }
@@ -78,6 +76,7 @@ main {
     font-size: 40px;
     text-align: center;
     color: black;
+    padding: 0 !important;
 }
 
 .sidebar-header a.title img {
@@ -87,13 +86,16 @@ main {
 }
 
 #slide-out {
+    min-height: 100vh;
     width: 32%;
     flex-direction: column;
     display: flex;
 }
 
 #slide-out .file-list {
-    overflow: scroll;
+    flex: auto;
+    overflow: auto;
+    overflow-x: hidden;
     margin: 0 !important;
 }
 

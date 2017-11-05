@@ -15,7 +15,7 @@ class File extends Component {
 
     changeDirectory = (event) => {
         event.preventDefault();
-        FilesActions.changeDirectory(event.target.dataset.path);
+        FilesActions.changeDirectory(this.props.path);
     }
 
     getViewLink = (path) => {
@@ -46,11 +46,6 @@ class File extends Component {
             <Icon name={ this.props.icon } /> :
             <Icon name='folder-o' />);
         const linkProps = {
-            className: 'tooltipped',
-            'data-delay': '40',
-            'data-path': path,
-            'data-position': 'right',
-            'data-tooltip': 'Download',
             target: '_blank'
         };
 

@@ -41,28 +41,29 @@ class File extends Component {
     }
 
     render = () => {
-        const path = this.props.path;
-        const name = this.props.name;
-        const mimetype = this.props.mime;
-        const isDirectory = this.props.isDirectory;
+        const { path, name, mime, isDirectory } = this.props;
         const icon = (typeof this.props.icon !== 'undefined' ?
             <Icon name={ this.props.icon } /> :
-            <Icon name="folder-o" />);
+            <Icon name='folder-o' />);
+        const linkProps = {
+            className: 'tooltipped',
+            'data-delay': '40',
+            'data-path': path,
+            'data-position': 'right',
+            'data-tooltip': 'Download',
+            target: '_blank'
+        };
+
         let link = (
-            <a className="tooltipped" target="_blank" data-position="right" data-delay="40"
-                data-tooltip="Download" data-path={ path }
-                href={ this.getViewLink(name) }
-            >
-                <Icon Component="i" name={ this.getIconByMime(mimetype) } />
+            <a { ...linkProps } href={ this.getViewLink(name) }>
+                <Icon Component='i' name={ this.getIconByMime(mime) } />
                 {name}
             </a>
         );
         if (isDirectory) {
             link = (
-                <a className="tooltipped" data-position="right"
-                    data-delay="40" data-tooltip="Browse"
-                    data-path={ path } onClick={ this.changeDirectory }
-                >{ icon }{name}
+                <a { ...linkProps } onClick={ this.changeDirectory }>
+                    {icon}{name}
                 </a>);
         }
         return <li>{link}</li>;

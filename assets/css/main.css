@@ -210,3 +210,19 @@ footer p {
     color: #5C6BC0;
     width: 100%;
 }
+
+/* Scroll-bar */
+
+*::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 16px;
+    background-color: rgb(131, 131, 131);
+}
+
+* {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}

@@ -13,7 +13,7 @@ body, #root {
 }
 
 main {
-    padding-left: 450px;
+    padding-left: 32%;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -87,7 +87,7 @@ main {
 }
 
 #slide-out {
-    width: 450px;
+    width: 32%;
     flex-direction: column;
     display: flex;
 }

@@ -32,10 +32,7 @@ class DropZone extends Component {
     }
 
     render = () => {
-        const config = this.componentConfig;
-        const djsConfig = this.djsConfig;
-        const path = this.props.path;
-
+        const { path } = this.props;
         const eventHandlers = {
             init: (dz) => this.dropzone = dz,
             success: (file) => this.success(file, path)
@@ -43,8 +40,8 @@ class DropZone extends Component {
 
         return (
             <DropzoneComponent
-                config={ config }
-                djsConfig={ djsConfig }
+                config={ this.componentConfig }
+                djsConfig={ this.djsConfig }
                 eventHandlers={ eventHandlers }
             />
         );

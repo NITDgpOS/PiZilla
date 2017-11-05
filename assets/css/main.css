@@ -127,8 +127,26 @@ footer p {
     margin: 0px !important;
 }
 
-.search:after {
-    content: '<i class="fa fa-search">dfdfd</i>' !important;
+.searchbar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-icon {
+    padding: 3px 15px;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    cursor: pointer;
+}
+
+.search-icon:hover {
+    color: #c48484;
+}
+
+.react-autosuggest__container {
+    flex: 1 0 auto;
 }
 
 .react-autosuggest__suggestions-container {

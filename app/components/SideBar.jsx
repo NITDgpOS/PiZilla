@@ -30,16 +30,14 @@ class SideBar extends Component {
         if (path.resolve(dirpath) !== path.resolve(serverConfig.uploads))
             files.unshift(parentDir);
         const list = files.map((file) => <File key={ file.path } { ...file } />);
-        list.unshift(<li key="search"><Search files={ files } /></li>);
-        list.unshift(<li key="title"><a className="title">PiZilla</a></li>);
+        list.unshift(<li key='search'><Search files={ files } /></li>);
+        list.unshift(<li key='title'><a className='title'>PiZilla</a></li>);
 
         return (
             <div>
-                <ul id="slide-out" className="side-nav fixed">
-                    {list}
-                </ul>
-                <a href="#" data-activates="slide-out" className="button-collapse">
-                    <Icon Component="i" name="bars" />
+                <ul id='slide-out' className='side-nav fixed'>{list}</ul>
+                <a href='#' data-activates='slide-out' className='button-collapse'>
+                    <Icon Component='i' name='bars' />
                 </a>
             </div>
         );

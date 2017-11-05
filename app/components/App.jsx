@@ -11,7 +11,7 @@ class App extends Component {
     };
 
     render = () => {
-        const store = this.props.store;
+        const { store } = this.props;
         return (
             <main>
                 <SideBar { ...store } />

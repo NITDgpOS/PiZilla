@@ -16,3 +16,6 @@ script:
     - mdl -g .  # checking markdown lint status
     - npm run lint  # checking eslint status
     - npm run build  # verifying webpack build backend and frontend
+
+notification:
+    email: false

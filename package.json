@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint .",
     "build": "rm -fr build/client && NODE_ENV=production webpack --config webpack.config.prod.babel.js",
-    "dev-client": "webpack-dev-server --config webpack.config.babel.js",
+    "dev-client": "webpack-dev-server --open --config webpack.config.babel.js",
     "dev-server": "babel-watch server",
     "dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
     "start": "NODE_ENV=production node build/server/bundle.server.js"

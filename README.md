@@ -44,6 +44,12 @@ const config = {
 
 ***
 
+# Screenshots
+
+![Screenshot1](/.github/assets/PiZilla-screenshot1.png)
+![Screenshot2](/.github/assets/PiZilla-screenshot2.png)
+![Screenshot3](/.github/assets/PiZilla-screenshot3.png)
+
 # Throughput Graph
 
 [![Throughput Graph](https://graphs.waffle.io/NIT-dgp/PiZilla/throughput.svg)](https://waffle.io/NIT-dgp/PiZilla/metrics/throughput)

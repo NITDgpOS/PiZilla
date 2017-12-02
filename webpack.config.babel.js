@@ -4,7 +4,8 @@ import webpack from 'webpack';
 const config = {
     devServer: {
         hot: true,
-        inline: true
+        inline: true,
+        openPage: '/localhost:8000'
     },
     devtool: 'cheap-module-eval-source-map',
     entry: path.resolve(__dirname, 'app', 'main.js'),

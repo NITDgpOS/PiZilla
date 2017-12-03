@@ -4,7 +4,10 @@ import webpack from 'webpack';
 const config = {
     devServer: {
         hot: true,
-        inline: true
+        inline: true,
+        proxy: {
+            '/': 'http://localhost:8000/'
+        }
     },
     devtool: 'cheap-module-eval-source-map',
     entry: path.resolve(__dirname, 'app', 'main.js'),
@@ -55,7 +58,8 @@ const config = {
     },
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'build', 'client')
+        path: path.resolve(__dirname, 'build', 'client'),
+        publicPath: '/dev-server'
     },
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),

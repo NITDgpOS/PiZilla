@@ -1,11 +1,14 @@
-import path from 'path';
+  import path from 'path';
 import webpack from 'webpack';
 
 const config = {
     devServer: {
         hot: true,
         inline: true,
-        openPage: 'https://localhost:8000'
+        proxy: {
+          '/': 'http://localhost:8000/'
+        }
+
     },
     devtool: 'cheap-module-eval-source-map',
     entry: path.resolve(__dirname, 'app', 'main.js'),
@@ -56,7 +59,8 @@ const config = {
     },
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'build', 'client')
+        path: path.resolve(__dirname, 'build', 'client'),
+        publicPath: "localhost:8080/dev-server/bundle.js"
     },
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),

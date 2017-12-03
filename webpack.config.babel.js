@@ -5,7 +5,10 @@ const config = {
     devServer: {
         hot: true,
         inline: true,
-        
+        proxy: {
+          '/': 'http://localhost:8000/'
+        }
+
     },
     devtool: 'cheap-module-eval-source-map',
     entry: path.resolve(__dirname, 'app', 'main.js'),

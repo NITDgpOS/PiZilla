@@ -32,7 +32,7 @@ const upload = multer({ storage });
 const router = new Router();
 router.get('/', (req, res) => {
     res.render('index', {
-        bundle: url.resolve(entryPoint, webpackConfig.output.filename),
+        bundle: url.resolve(entryPoint, `/dev-server${webpackConfig.output.filename}`),
         title: 'PiZilla'
     });
 });

@@ -10,6 +10,7 @@ class DropZone extends Component {
 
     constructor(props) {
         super(props);
+        Notification.requestPermission();
 
         // For a full list of possible configurations,
         // please consult http://www.dropzonejs.com/#configuration
@@ -29,6 +30,9 @@ class DropZone extends Component {
 
     success = (file, path) => {
         FilesActions.updateFileList(path);
+        if(Notification.permission === 'granted') {
+            new Notification('File uploaded successfully');
+        }
     }
 
     render = () => {

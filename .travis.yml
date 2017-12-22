@@ -1,5 +1,8 @@
 language: node_js
 
+services:
+    - docker
+
 node_js:
     - "8"
     - "7"
@@ -16,6 +19,7 @@ script:
     - mdl -g .  # checking markdown lint status
     - npm run lint  # checking eslint status
     - npm run build  # verifying webpack build backend and frontend
+    - docker build -t ci/pizilla . # test if docker can build this thing
 
 notification:
     email: false

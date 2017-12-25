@@ -7,7 +7,7 @@
     "build": "rm -fr build/client && NODE_ENV=production webpack --config webpack.config.prod.babel.js",
     "dev-client": "webpack-dev-server --config webpack.config.babel.js",
     "dev-server": "babel-watch server",
-    "dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
+    "dev": "webpack-dashboard -- concurrently \"npm run dev-server\" \"npm run dev-client\" --raw",
     "start": "NODE_ENV=production node build/server/bundle.server.js"
   },
   "keywords": [
@@ -57,5 +57,8 @@
     "url-loader": "^0.5.9",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
+  },
+  "devDependencies": {
+    "webpack-dashboard": "^1.0.2"
   }
 }

@@ -66,4 +66,9 @@ const config = {
     }
 };
 
+if (process.env.NODE_ENV !== 'production') {
+    const DashboardPlugin = require('webpack-dashboard/plugin');
+    config.plugins.push(new DashboardPlugin());
+}
+
 export default config;

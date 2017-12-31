@@ -1,8 +1,9 @@
 import { getFileList, statAsync } from './utils';
 import { Router } from 'express';
 import bodyparser from 'body-parser';
-import { exec } from 'child_process';
-import multer from 'multer';
+import child_process from 'child_process';
+import formidable from 'formidable';
+import fs from 'fs';
 import path from 'path';
 import serverConfig from './config';
 import url from 'url';
@@ -12,21 +13,35 @@ import webpackConfig from './../webpack.config.babel';
 const urlencodedParser = bodyparser.urlencoded({ extended: true });
 const isProduction = process.env.NODE_ENV === 'production';
 const entryPoint = isProduction ? '/build/' : 'http://localhost:8080/';
+const uploadDir = serverConfig.uploads;
+const password = 'password';
+
 
 // file upload configuration
-const storage = multer.diskStorage({
-    destination: (request, file, callback) => {
-        callback(null, serverConfig.uploads);
-    },
-    filename: (request, file, callback) => {
-        let filename = file.originalname;
-        if (file.mimetype.match('video/.*'))
-            filename = `${filename}.mp4`;
-        console.info(`UPLOADING FILE... ${filename}`);
-        callback(null, filename);
-    }
-});
-const upload = multer({ storage });
+const upload = (req) => {
+    const form = new formidable.IncomingForm({
+        keepExtensions: true,
+        uploadDir
+    });
+    form.parse(req);
+    form.on('fileBegin', (name, file) => {
+        const [fileName, fileExt] = file.name.split('.');
+        file.path = path.join(uploadDir, `${fileName}.${fileExt}`);
+    });
+    form.on('fileBegin', (name, file) => {
+        console.info(`Uploaded ${file.name}`);
+        console.info(`${file.path}`);
+        child_process.spawn('zip', ['-P', `${password}`, `${file.path.split('.')[0]}.zip`, `${file.path}`]);
+    });
+    form.on('file', (name, file) => {
+        fs.unlinkSync(file.path, (err) => {
+            console.info(`File removed ${file.path}`);
+            if (err) {
+                console.info(err);
+            }
+        });
+    });
+};
 
 // Routes
 const router = new Router();
@@ -37,8 +52,9 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/upload', upload.any(), (req, res) => {
-    return res.status( 200 ).send(req.files);
+router.post('/upload', (req, res) => {
+    upload(req);
+    return res.status(200).send(req.files);
 });
 
 router.get('/download', async (req, res) => {
@@ -74,18 +90,18 @@ router.post('/pifire', urlencodedParser, (req, res) => {
     const file = '/home/vinay/Desktop/PiZilla/uploads/';
     let type = '';
 
-    if(response.selection_radio === 'music') {
+    if (response.selection_radio === 'music') {
         type = '-f 140';
     }
 
-    exec(`youtube-dl ${type} --no-check-certificate ` +
-         '-c --audio-quality 0 --restrict-filenames --no-warnings ' +
-         `--no-check-certificate -o ${file}'%(title)s.%(ext)s' ` +
-         `"${url}"`, (error) => {
+    child_process.exec(`youtube-dl ${type} --no-check-certificate ` +
+        '-c --audio-quality 0 --restrict-filenames --no-warnings ' +
+        `--no-check-certificate -o ${file}'%(title)s.%(ext)s' ` +
+        `"${url}"`, (error) => {
         if (error) console.error(error);
         else exec(`youtube-dl ${type} --no-check-certificate ` +
-                      '-c --recode-video mp4 --restrict-filenames' +
-                      ` --no-warnings -o ${file}'%(title)s.%(ext)s' "${url}"`,
+                '-c --recode-video mp4 --restrict-filenames' +
+                ` --no-warnings -o ${file}'%(title)s.%(ext)s' "${url}"`,
         (error) => {
             if (error) console.error(error);
         });

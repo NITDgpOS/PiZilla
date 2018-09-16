@@ -3,6 +3,8 @@ import DropzoneComponent from 'react-dropzone-component';
 import FilesActions from './../actions/FilesActions';
 import PropTypes from 'prop-types';
 
+const icon = '/assets/img/pizilla/favicon.ico';
+
 class DropZone extends Component {
     static propTypes = {
         path: PropTypes.string
@@ -30,8 +32,9 @@ class DropZone extends Component {
 
     success = (file, path) => {
         FilesActions.updateFileList(path);
+        const body = `Filename : ${file.name}`;
         if(Notification.permission === 'granted') {
-            new Notification('File uploaded successfully');
+            new Notification('File uploaded successfully',{ body , icon });
         }
     }
 
